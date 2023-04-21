@@ -7,9 +7,6 @@ export default {
       newTodo: '',
       hideCompleted: false,
       todos: [
-        { id: id++, text: 'Learn HTML', done: true },
-        { id: id++, text: 'Learn JavaScript', done: true },
-        { id: id++, text: 'Learn Vue', done: false }
       ]
     }
   },
@@ -33,11 +30,12 @@ export default {
 </script>
 
 <template>
+ <h1>Kegiatan Ekstrakulikuler</h1>
   <form @submit.prevent="addTodo">
-    <input v-model="newTodo">
-    <button>Add Todo</button>
+  <input v-model="newTodo" type="search" placeholder="Isi kegiatan..">
+    <button>Tambahkan Kegiatan</button>
   </form>
-  <ul>
+  <ul class="todo-list">
     <li v-for="todo in filteredTodos" :key="todo.id">
       <input type="checkbox" v-model="todo.done">
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
@@ -50,7 +48,45 @@ export default {
 </template>
 
 <style>
+body {
+  background-color: gray;
+  color: white;
+}
+
+button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
 .done {
   text-decoration: line-through;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-size: 25px;
 }
 </style>
