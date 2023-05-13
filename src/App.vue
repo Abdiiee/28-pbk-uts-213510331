@@ -5,13 +5,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <nav>
+    <div class="navbar">
       <RouterLink to="/">Home</RouterLink> |
       <RouterLink to="/meapp">MeApp</RouterLink>
-    </nav>
+    </div>
   </header>
 
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped>
@@ -21,18 +21,28 @@ import { RouterLink, RouterView } from 'vue-router'
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-nav {
-  padding: 30px;
-  text-align: center;
+
+.navbar {
+  padding-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #cffafe;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-nav a {
+
+.navbar a {
   font-weight: bold;
   text-decoration: none;
   padding: 10px;
 }
-nav a.router-link-exact-active {
+
+.navbar a.router-link-exact-active {
   color: #ffff;
   background: #155e75;
   border-radius: 10px;
-}
-</style>
+}</style>
